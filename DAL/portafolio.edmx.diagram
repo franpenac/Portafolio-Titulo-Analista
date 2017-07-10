@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="186949ba825342d097bcb79a74feff61" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.ASIGNACIONPAQMANT" Width="1.5" PointX="11.25" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ASIGNACIONPRODUCTO" Width="1.5" PointX="8.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.COMUNA" Width="1.5" PointX="1.5" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.LOCALIZACION" Width="1.5" PointX="3.75" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.MARCA" Width="1.5" PointX="1.5" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.MODELO" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PAIS" Width="1.5" PointX="1.5" PointY="20.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PAQUETEMANTENCION" Width="1.5" PointX="6" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PERFIL" Width="1.5" PointX="10.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PROVEEDOR" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.REGION" Width="1.5" PointX="1.5" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.REPUESTOALTERNATIVO" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.REPUESTOALTERNATIVOUTILIZADO" Width="1.5" PointX="8.25" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.REPUESTOORIGINAL" Width="1.5" PointX="6" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.REPUESTOORIGINALUTILIZADO" Width="1.5" PointX="8.25" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TALLER" Width="1.5" PointX="6" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TIPOPRODUCTO" Width="1.5" PointX="3.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.USUARIO" Width="1.5" PointX="13" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.VEHICILOMANTENCION" Width="1.5" PointX="8.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.VEHICULO" Width="1.5" PointX="6" PointY="10.75" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK_ASIGNACI_REFERENCE_PAQUETEM" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_ASIGNACI_REFERENCE_TALLER" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_ASIG_PRO_REFERENCE_TAL" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_ASIGNACI_REFERENCE_REPUESTO" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_COMUNA_REFERENCE_REGION" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_LOCALIZA_REFERENCE_COMUNA" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_TALLER_REFERENCE_LOCALIZA" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_MODELO_REFERENCE_MARCA" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_ALTER_REFERENCE_MODELO" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Ori_REFERENCE_MODELO" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_REGION_REFERENCE_PAIS" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_ORG_REFERENCE_PAQUETEM" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_UTIL_REFERENCE_PAQUETEM" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_VEHICILO_REFERENCE_PAQUETEM" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_USUARIO_REFERENCE_PERFIL" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_ALTER_REFERENCE_PROVEEDO" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_ORI_REFERENCE_PROVEEDO" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_ALT_REFERENCE_ORG" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_REPUESTO_REFERENCE_TIPOPROD" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_UTIL_REFERENCE_ALT" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_PRO_TIP_REFERENCE_TIPO" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_UTIL_REFERENCE_ORG" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_VEHICILO_REFERENCE_VEHICULO" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

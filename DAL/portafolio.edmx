@@ -1,0 +1,1409 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ASIGNACIONPAQMANT">
+          <Key>
+            <PropertyRef Name="ASIGNACIONPAQMANTID" />
+          </Key>
+          <Property Name="ASIGNACIONPAQMANTID" Type="number" Precision="6" Scale="0" Nullable="false" />
+          <Property Name="TALLERID" Type="number" Precision="38" Scale="0" />
+          <Property Name="PAQUETEMANTENCIONID" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="ASIGNACIONPRODUCTO">
+          <Key>
+            <PropertyRef Name="ASIGNACIONPRODUCTOID" />
+          </Key>
+          <Property Name="ASIGNACIONPRODUCTOID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TALLERID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="REPUESTOORIGINALID" Type="number" Precision="38" Scale="0" />
+          <Property Name="CANTIDAD" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="COMUNA">
+          <Key>
+            <PropertyRef Name="COMUNAID" />
+          </Key>
+          <Property Name="COMUNAID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="REGIONID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBRECOMUNA" Type="varchar2" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LOCALIZACION">
+          <Key>
+            <PropertyRef Name="LOCALIZACIONID" />
+          </Key>
+          <Property Name="LOCALIZACIONID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="COMUNAID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBRELOCALIZACION" Type="varchar2" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MARCA">
+          <Key>
+            <PropertyRef Name="MARCAID" />
+          </Key>
+          <Property Name="MARCAID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBREMARCA" Type="varchar2" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MODELO">
+          <Key>
+            <PropertyRef Name="MODELOID" />
+          </Key>
+          <Property Name="MODELOID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="MARCAID" Type="number" Precision="38" Scale="0" />
+          <Property Name="NOMBREMODELO" Type="varchar2" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PAIS">
+          <Key>
+            <PropertyRef Name="PAISID" />
+          </Key>
+          <Property Name="PAISID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBREPAIS" Type="varchar2" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PAQUETEMANTENCION">
+          <Key>
+            <PropertyRef Name="PAQUETEMANTENCIONID" />
+          </Key>
+          <Property Name="PAQUETEMANTENCIONID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBREPAQUETEMANTENCION" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="COSTOTOTAL" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DURACIONDIAS" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="varchar2" MaxLength="600" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PERFIL">
+          <Key>
+            <PropertyRef Name="PERFILID" />
+          </Key>
+          <Property Name="PERFILID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBREPERFIL" Type="varchar2" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PROVEEDOR">
+          <Key>
+            <PropertyRef Name="PROVEEDORID" />
+          </Key>
+          <Property Name="PROVEEDORID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBREPROVEEDOR" Type="varchar2" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="REGION">
+          <Key>
+            <PropertyRef Name="REGIONID" />
+          </Key>
+          <Property Name="REGIONID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PAISID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBREREGION" Type="varchar2" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="REPUESTOALTERNATIVO">
+          <Key>
+            <PropertyRef Name="REPUESTOALTERNATIVOID" />
+          </Key>
+          <Property Name="REPUESTOALTERNATIVOID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="REPUESTOORIGINALID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PROVEEDORID" Type="number" Precision="38" Scale="0" />
+          <Property Name="TIPOPRODUCTOID" Type="number" Precision="38" Scale="0" />
+          <Property Name="MODELOID" Type="number" Precision="38" Scale="0" />
+          <Property Name="COSTO" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="REPUESTOALTERNATIVOUTILIZADO">
+          <Key>
+            <PropertyRef Name="REPUESTOALTERNATIVOUTILIZADOID" />
+          </Key>
+          <Property Name="REPUESTOALTERNATIVOUTILIZADOID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="REPUESTOALTERNATIVOID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PAQUETEMANTENCIONID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CANTIDAD" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="REPUESTOORIGINAL">
+          <Key>
+            <PropertyRef Name="REPUESTOORIGINALID" />
+          </Key>
+          <Property Name="REPUESTOORIGINALID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="MODELOID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PROVEEDORID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TIPOPRODUCTOID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="COSTO" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="REPUESTOORIGINALUTILIZADO">
+          <Key>
+            <PropertyRef Name="REPUESTOORIGINALUTILIZADOID" />
+          </Key>
+          <Property Name="REPUESTOORIGINALUTILIZADOID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="REPUESTOORIGINALID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PAQUETEMANTENCIONID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CANTIDAD" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TALLER">
+          <Key>
+            <PropertyRef Name="TALLERID" />
+          </Key>
+          <Property Name="TALLERID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="LOCATIONID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBRETALLER" Type="varchar2" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TIPOPRODUCTO">
+          <Key>
+            <PropertyRef Name="TIPOPRODUCTOID" />
+          </Key>
+          <Property Name="TIPOPRODUCTOID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBRETIPO" Type="varchar2" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="PERSONAID" />
+          </Key>
+          <Property Name="PERSONAID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PERFILID" Type="number" Precision="38" Scale="0" />
+          <Property Name="RUTPERSONA" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="NOMBREPERSONA" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="APELLIDOPERSONA" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="EMAILPERSONA" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="PASSWORDPERSONA" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="PASSWORDCODE" Type="varchar2" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VEHICILOMANTENCION">
+          <Key>
+            <PropertyRef Name="IDVEHICILOMANTENCION" />
+          </Key>
+          <Property Name="PAQUETEMANTENCIONID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="IDVEHICILOMANTENCION" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PATENTE" Type="varchar2" MaxLength="50" />
+          <Property Name="FECHAENTRADA" Type="date" Nullable="false" />
+          <Property Name="FECHASALIDA" Type="date" />
+        </EntityType>
+        <EntityType Name="VEHICULO">
+          <Key>
+            <PropertyRef Name="PATENTE" />
+          </Key>
+          <Property Name="RUTCLIENTE" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="NOMBRECLIENTE" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="MARCAVEHICULO" Type="varchar2" MaxLength="50" Nullable="false" />
+          <Property Name="MODELOVEHICULO" Type="varchar2" MaxLength="50" Nullable="false" />
+          <Property Name="PATENTE" Type="varchar2" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ALT_REFERENCE_ORG">
+          <End Role="REPUESTOORIGINAL" Type="Self.REPUESTOORIGINAL" Multiplicity="1" />
+          <End Role="REPUESTOALTERNATIVO" Type="Self.REPUESTOALTERNATIVO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REPUESTOORIGINAL">
+              <PropertyRef Name="REPUESTOORIGINALID" />
+            </Principal>
+            <Dependent Role="REPUESTOALTERNATIVO">
+              <PropertyRef Name="REPUESTOORIGINALID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ALTER_REFERENCE_MODELO">
+          <End Role="MODELO" Type="Self.MODELO" Multiplicity="0..1" />
+          <End Role="REPUESTOALTERNATIVO" Type="Self.REPUESTOALTERNATIVO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MODELO">
+              <PropertyRef Name="MODELOID" />
+            </Principal>
+            <Dependent Role="REPUESTOALTERNATIVO">
+              <PropertyRef Name="MODELOID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ALTER_REFERENCE_PROVEEDO">
+          <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="0..1" />
+          <End Role="REPUESTOALTERNATIVO" Type="Self.REPUESTOALTERNATIVO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROVEEDOR">
+              <PropertyRef Name="PROVEEDORID" />
+            </Principal>
+            <Dependent Role="REPUESTOALTERNATIVO">
+              <PropertyRef Name="PROVEEDORID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ASIG_PRO_REFERENCE_TAL">
+          <End Role="TALLER" Type="Self.TALLER" Multiplicity="1" />
+          <End Role="ASIGNACIONPRODUCTO" Type="Self.ASIGNACIONPRODUCTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TALLER">
+              <PropertyRef Name="TALLERID" />
+            </Principal>
+            <Dependent Role="ASIGNACIONPRODUCTO">
+              <PropertyRef Name="TALLERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ASIGNACI_REFERENCE_PAQUETEM">
+          <End Role="PAQUETEMANTENCION" Type="Self.PAQUETEMANTENCION" Multiplicity="0..1" />
+          <End Role="ASIGNACIONPAQMANT" Type="Self.ASIGNACIONPAQMANT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PAQUETEMANTENCION">
+              <PropertyRef Name="PAQUETEMANTENCIONID" />
+            </Principal>
+            <Dependent Role="ASIGNACIONPAQMANT">
+              <PropertyRef Name="PAQUETEMANTENCIONID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ASIGNACI_REFERENCE_REPUESTO">
+          <End Role="REPUESTOORIGINAL" Type="Self.REPUESTOORIGINAL" Multiplicity="0..1" />
+          <End Role="ASIGNACIONPRODUCTO" Type="Self.ASIGNACIONPRODUCTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REPUESTOORIGINAL">
+              <PropertyRef Name="REPUESTOORIGINALID" />
+            </Principal>
+            <Dependent Role="ASIGNACIONPRODUCTO">
+              <PropertyRef Name="REPUESTOORIGINALID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ASIGNACI_REFERENCE_TALLER">
+          <End Role="TALLER" Type="Self.TALLER" Multiplicity="0..1" />
+          <End Role="ASIGNACIONPAQMANT" Type="Self.ASIGNACIONPAQMANT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TALLER">
+              <PropertyRef Name="TALLERID" />
+            </Principal>
+            <Dependent Role="ASIGNACIONPAQMANT">
+              <PropertyRef Name="TALLERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_COMUNA_REFERENCE_REGION">
+          <End Role="REGION" Type="Self.REGION" Multiplicity="1" />
+          <End Role="COMUNA" Type="Self.COMUNA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REGION">
+              <PropertyRef Name="REGIONID" />
+            </Principal>
+            <Dependent Role="COMUNA">
+              <PropertyRef Name="REGIONID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LOCALIZA_REFERENCE_COMUNA">
+          <End Role="COMUNA" Type="Self.COMUNA" Multiplicity="1" />
+          <End Role="LOCALIZACION" Type="Self.LOCALIZACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COMUNA">
+              <PropertyRef Name="COMUNAID" />
+            </Principal>
+            <Dependent Role="LOCALIZACION">
+              <PropertyRef Name="COMUNAID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MODELO_REFERENCE_MARCA">
+          <End Role="MARCA" Type="Self.MARCA" Multiplicity="0..1" />
+          <End Role="MODELO" Type="Self.MODELO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MARCA">
+              <PropertyRef Name="MARCAID" />
+            </Principal>
+            <Dependent Role="MODELO">
+              <PropertyRef Name="MARCAID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORG_REFERENCE_PAQUETEM">
+          <End Role="PAQUETEMANTENCION" Type="Self.PAQUETEMANTENCION" Multiplicity="1" />
+          <End Role="REPUESTOORIGINALUTILIZADO" Type="Self.REPUESTOORIGINALUTILIZADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PAQUETEMANTENCION">
+              <PropertyRef Name="PAQUETEMANTENCIONID" />
+            </Principal>
+            <Dependent Role="REPUESTOORIGINALUTILIZADO">
+              <PropertyRef Name="PAQUETEMANTENCIONID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ori_REFERENCE_MODELO">
+          <End Role="MODELO" Type="Self.MODELO" Multiplicity="1" />
+          <End Role="REPUESTOORIGINAL" Type="Self.REPUESTOORIGINAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MODELO">
+              <PropertyRef Name="MODELOID" />
+            </Principal>
+            <Dependent Role="REPUESTOORIGINAL">
+              <PropertyRef Name="MODELOID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORI_REFERENCE_PROVEEDO">
+          <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="1" />
+          <End Role="REPUESTOORIGINAL" Type="Self.REPUESTOORIGINAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROVEEDOR">
+              <PropertyRef Name="PROVEEDORID" />
+            </Principal>
+            <Dependent Role="REPUESTOORIGINAL">
+              <PropertyRef Name="PROVEEDORID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRO_TIP_REFERENCE_TIPO">
+          <End Role="TIPOPRODUCTO" Type="Self.TIPOPRODUCTO" Multiplicity="1" />
+          <End Role="REPUESTOORIGINAL" Type="Self.REPUESTOORIGINAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPOPRODUCTO">
+              <PropertyRef Name="TIPOPRODUCTOID" />
+            </Principal>
+            <Dependent Role="REPUESTOORIGINAL">
+              <PropertyRef Name="TIPOPRODUCTOID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REGION_REFERENCE_PAIS">
+          <End Role="PAIS" Type="Self.PAIS" Multiplicity="1" />
+          <End Role="REGION" Type="Self.REGION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PAIS">
+              <PropertyRef Name="PAISID" />
+            </Principal>
+            <Dependent Role="REGION">
+              <PropertyRef Name="PAISID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REPUESTO_REFERENCE_TIPOPROD">
+          <End Role="TIPOPRODUCTO" Type="Self.TIPOPRODUCTO" Multiplicity="0..1" />
+          <End Role="REPUESTOALTERNATIVO" Type="Self.REPUESTOALTERNATIVO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPOPRODUCTO">
+              <PropertyRef Name="TIPOPRODUCTOID" />
+            </Principal>
+            <Dependent Role="REPUESTOALTERNATIVO">
+              <PropertyRef Name="TIPOPRODUCTOID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TALLER_REFERENCE_LOCALIZA">
+          <End Role="LOCALIZACION" Type="Self.LOCALIZACION" Multiplicity="1" />
+          <End Role="TALLER" Type="Self.TALLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOCALIZACION">
+              <PropertyRef Name="LOCALIZACIONID" />
+            </Principal>
+            <Dependent Role="TALLER">
+              <PropertyRef Name="LOCATIONID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIO_REFERENCE_PERFIL">
+          <End Role="PERFIL" Type="Self.PERFIL" Multiplicity="0..1" />
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERFIL">
+              <PropertyRef Name="PERFILID" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="PERFILID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UTIL_REFERENCE_ALT">
+          <End Role="REPUESTOALTERNATIVO" Type="Self.REPUESTOALTERNATIVO" Multiplicity="1" />
+          <End Role="REPUESTOALTERNATIVOUTILIZADO" Type="Self.REPUESTOALTERNATIVOUTILIZADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REPUESTOALTERNATIVO">
+              <PropertyRef Name="REPUESTOALTERNATIVOID" />
+            </Principal>
+            <Dependent Role="REPUESTOALTERNATIVOUTILIZADO">
+              <PropertyRef Name="REPUESTOALTERNATIVOID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UTIL_REFERENCE_ORG">
+          <End Role="REPUESTOORIGINAL" Type="Self.REPUESTOORIGINAL" Multiplicity="1" />
+          <End Role="REPUESTOORIGINALUTILIZADO" Type="Self.REPUESTOORIGINALUTILIZADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REPUESTOORIGINAL">
+              <PropertyRef Name="REPUESTOORIGINALID" />
+            </Principal>
+            <Dependent Role="REPUESTOORIGINALUTILIZADO">
+              <PropertyRef Name="REPUESTOORIGINALID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UTIL_REFERENCE_PAQUETEM">
+          <End Role="PAQUETEMANTENCION" Type="Self.PAQUETEMANTENCION" Multiplicity="1" />
+          <End Role="REPUESTOALTERNATIVOUTILIZADO" Type="Self.REPUESTOALTERNATIVOUTILIZADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PAQUETEMANTENCION">
+              <PropertyRef Name="PAQUETEMANTENCIONID" />
+            </Principal>
+            <Dependent Role="REPUESTOALTERNATIVOUTILIZADO">
+              <PropertyRef Name="PAQUETEMANTENCIONID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VEHICILO_REFERENCE_PAQUETEM">
+          <End Role="PAQUETEMANTENCION" Type="Self.PAQUETEMANTENCION" Multiplicity="1" />
+          <End Role="VEHICILOMANTENCION" Type="Self.VEHICILOMANTENCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PAQUETEMANTENCION">
+              <PropertyRef Name="PAQUETEMANTENCIONID" />
+            </Principal>
+            <Dependent Role="VEHICILOMANTENCION">
+              <PropertyRef Name="PAQUETEMANTENCIONID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VEHICILO_REFERENCE_VEHICULO">
+          <End Role="VEHICULO" Type="Self.VEHICULO" Multiplicity="0..1" />
+          <End Role="VEHICILOMANTENCION" Type="Self.VEHICILOMANTENCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VEHICULO">
+              <PropertyRef Name="PATENTE" />
+            </Principal>
+            <Dependent Role="VEHICILOMANTENCION">
+              <PropertyRef Name="PATENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="ASIGNACIONPAQMANT" EntityType="Self.ASIGNACIONPAQMANT" Schema="RODRIGO" store:Type="Tables" />
+          <EntitySet Name="ASIGNACIONPRODUCTO" EntityType="Self.ASIGNACIONPRODUCTO" Schema="RODRIGO" store:Type="Tables" />
+          <EntitySet Name="COMUNA" EntityType="Self.COMUNA" Schema="RODRIGO" store:Type="Tables" />
+          <EntitySet Name="LOCALIZACION" EntityType="Self.LOCALIZACION" Schema="RODRIGO" store:Type="Tables" />
+          <EntitySet Name="MARCA" EntityType="Self.MARCA" Schema="RODRIGO" store:Type="Tables" />
+          <EntitySet Name="MODELO" EntityType="Self.MODELO" Schema="RODRIGO" store:Type="Tables" />
+          <EntitySet Name="PAIS" EntityType="Self.PAIS" Schema="RODRIGO" store:Type="Tables" />
+          <EntitySet Name="PAQUETEMANTENCION" EntityType="Self.PAQUETEMANTENCION" Schema="RODRIGO" store:Type="Tables" />
+          <EntitySet Name="PERFIL" EntityType="Self.PERFIL" Schema="RODRIGO" store:Type="Tables" />
+          <EntitySet Name="PROVEEDOR" EntityType="Self.PROVEEDOR" Schema="RODRIGO" store:Type="Tables" />
+          <EntitySet Name="REGION" EntityType="Self.REGION" Schema="RODRIGO" store:Type="Tables" />
+          <EntitySet Name="REPUESTOALTERNATIVO" EntityType="Self.REPUESTOALTERNATIVO" Schema="RODRIGO" store:Type="Tables" />
+          <EntitySet Name="REPUESTOALTERNATIVOUTILIZADO" EntityType="Self.REPUESTOALTERNATIVOUTILIZADO" Schema="RODRIGO" store:Type="Tables" />
+          <EntitySet Name="REPUESTOORIGINAL" EntityType="Self.REPUESTOORIGINAL" Schema="RODRIGO" store:Type="Tables" />
+          <EntitySet Name="REPUESTOORIGINALUTILIZADO" EntityType="Self.REPUESTOORIGINALUTILIZADO" Schema="RODRIGO" store:Type="Tables" />
+          <EntitySet Name="TALLER" EntityType="Self.TALLER" Schema="RODRIGO" store:Type="Tables" />
+          <EntitySet Name="TIPOPRODUCTO" EntityType="Self.TIPOPRODUCTO" Schema="RODRIGO" store:Type="Tables" />
+          <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="RODRIGO" store:Type="Tables" />
+          <EntitySet Name="VEHICILOMANTENCION" EntityType="Self.VEHICILOMANTENCION" Schema="RODRIGO" store:Type="Tables" />
+          <EntitySet Name="VEHICULO" EntityType="Self.VEHICULO" Schema="RODRIGO" store:Type="Tables" />
+          <AssociationSet Name="FK_ALT_REFERENCE_ORG" Association="Self.FK_ALT_REFERENCE_ORG">
+            <End Role="REPUESTOORIGINAL" EntitySet="REPUESTOORIGINAL" />
+            <End Role="REPUESTOALTERNATIVO" EntitySet="REPUESTOALTERNATIVO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ALTER_REFERENCE_MODELO" Association="Self.FK_ALTER_REFERENCE_MODELO">
+            <End Role="MODELO" EntitySet="MODELO" />
+            <End Role="REPUESTOALTERNATIVO" EntitySet="REPUESTOALTERNATIVO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ALTER_REFERENCE_PROVEEDO" Association="Self.FK_ALTER_REFERENCE_PROVEEDO">
+            <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
+            <End Role="REPUESTOALTERNATIVO" EntitySet="REPUESTOALTERNATIVO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ASIG_PRO_REFERENCE_TAL" Association="Self.FK_ASIG_PRO_REFERENCE_TAL">
+            <End Role="TALLER" EntitySet="TALLER" />
+            <End Role="ASIGNACIONPRODUCTO" EntitySet="ASIGNACIONPRODUCTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ASIGNACI_REFERENCE_PAQUETEM" Association="Self.FK_ASIGNACI_REFERENCE_PAQUETEM">
+            <End Role="PAQUETEMANTENCION" EntitySet="PAQUETEMANTENCION" />
+            <End Role="ASIGNACIONPAQMANT" EntitySet="ASIGNACIONPAQMANT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ASIGNACI_REFERENCE_REPUESTO" Association="Self.FK_ASIGNACI_REFERENCE_REPUESTO">
+            <End Role="REPUESTOORIGINAL" EntitySet="REPUESTOORIGINAL" />
+            <End Role="ASIGNACIONPRODUCTO" EntitySet="ASIGNACIONPRODUCTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ASIGNACI_REFERENCE_TALLER" Association="Self.FK_ASIGNACI_REFERENCE_TALLER">
+            <End Role="TALLER" EntitySet="TALLER" />
+            <End Role="ASIGNACIONPAQMANT" EntitySet="ASIGNACIONPAQMANT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_COMUNA_REFERENCE_REGION" Association="Self.FK_COMUNA_REFERENCE_REGION">
+            <End Role="REGION" EntitySet="REGION" />
+            <End Role="COMUNA" EntitySet="COMUNA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LOCALIZA_REFERENCE_COMUNA" Association="Self.FK_LOCALIZA_REFERENCE_COMUNA">
+            <End Role="COMUNA" EntitySet="COMUNA" />
+            <End Role="LOCALIZACION" EntitySet="LOCALIZACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MODELO_REFERENCE_MARCA" Association="Self.FK_MODELO_REFERENCE_MARCA">
+            <End Role="MARCA" EntitySet="MARCA" />
+            <End Role="MODELO" EntitySet="MODELO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORG_REFERENCE_PAQUETEM" Association="Self.FK_ORG_REFERENCE_PAQUETEM">
+            <End Role="PAQUETEMANTENCION" EntitySet="PAQUETEMANTENCION" />
+            <End Role="REPUESTOORIGINALUTILIZADO" EntitySet="REPUESTOORIGINALUTILIZADO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ori_REFERENCE_MODELO" Association="Self.FK_Ori_REFERENCE_MODELO">
+            <End Role="MODELO" EntitySet="MODELO" />
+            <End Role="REPUESTOORIGINAL" EntitySet="REPUESTOORIGINAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORI_REFERENCE_PROVEEDO" Association="Self.FK_ORI_REFERENCE_PROVEEDO">
+            <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
+            <End Role="REPUESTOORIGINAL" EntitySet="REPUESTOORIGINAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRO_TIP_REFERENCE_TIPO" Association="Self.FK_PRO_TIP_REFERENCE_TIPO">
+            <End Role="TIPOPRODUCTO" EntitySet="TIPOPRODUCTO" />
+            <End Role="REPUESTOORIGINAL" EntitySet="REPUESTOORIGINAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REGION_REFERENCE_PAIS" Association="Self.FK_REGION_REFERENCE_PAIS">
+            <End Role="PAIS" EntitySet="PAIS" />
+            <End Role="REGION" EntitySet="REGION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REPUESTO_REFERENCE_TIPOPROD" Association="Self.FK_REPUESTO_REFERENCE_TIPOPROD">
+            <End Role="TIPOPRODUCTO" EntitySet="TIPOPRODUCTO" />
+            <End Role="REPUESTOALTERNATIVO" EntitySet="REPUESTOALTERNATIVO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TALLER_REFERENCE_LOCALIZA" Association="Self.FK_TALLER_REFERENCE_LOCALIZA">
+            <End Role="LOCALIZACION" EntitySet="LOCALIZACION" />
+            <End Role="TALLER" EntitySet="TALLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIO_REFERENCE_PERFIL" Association="Self.FK_USUARIO_REFERENCE_PERFIL">
+            <End Role="PERFIL" EntitySet="PERFIL" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UTIL_REFERENCE_ALT" Association="Self.FK_UTIL_REFERENCE_ALT">
+            <End Role="REPUESTOALTERNATIVO" EntitySet="REPUESTOALTERNATIVO" />
+            <End Role="REPUESTOALTERNATIVOUTILIZADO" EntitySet="REPUESTOALTERNATIVOUTILIZADO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UTIL_REFERENCE_ORG" Association="Self.FK_UTIL_REFERENCE_ORG">
+            <End Role="REPUESTOORIGINAL" EntitySet="REPUESTOORIGINAL" />
+            <End Role="REPUESTOORIGINALUTILIZADO" EntitySet="REPUESTOORIGINALUTILIZADO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UTIL_REFERENCE_PAQUETEM" Association="Self.FK_UTIL_REFERENCE_PAQUETEM">
+            <End Role="PAQUETEMANTENCION" EntitySet="PAQUETEMANTENCION" />
+            <End Role="REPUESTOALTERNATIVOUTILIZADO" EntitySet="REPUESTOALTERNATIVOUTILIZADO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VEHICILO_REFERENCE_PAQUETEM" Association="Self.FK_VEHICILO_REFERENCE_PAQUETEM">
+            <End Role="PAQUETEMANTENCION" EntitySet="PAQUETEMANTENCION" />
+            <End Role="VEHICILOMANTENCION" EntitySet="VEHICILOMANTENCION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VEHICILO_REFERENCE_VEHICULO" Association="Self.FK_VEHICILO_REFERENCE_VEHICULO">
+            <End Role="VEHICULO" EntitySet="VEHICULO" />
+            <End Role="VEHICILOMANTENCION" EntitySet="VEHICILOMANTENCION" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ASIGNACIONPAQMANT">
+          <Key>
+            <PropertyRef Name="ASIGNACIONPAQMANTID" />
+          </Key>
+          <Property Name="ASIGNACIONPAQMANTID" Type="Int32" Nullable="false" />
+          <Property Name="TALLERID" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="PAQUETEMANTENCIONID" Type="Decimal" Precision="38" Scale="0" />
+          <NavigationProperty Name="PAQUETEMANTENCION" Relationship="Self.FK_ASIGNACI_REFERENCE_PAQUETEM" FromRole="ASIGNACIONPAQMANT" ToRole="PAQUETEMANTENCION" />
+          <NavigationProperty Name="TALLER" Relationship="Self.FK_ASIGNACI_REFERENCE_TALLER" FromRole="ASIGNACIONPAQMANT" ToRole="TALLER" />
+        </EntityType>
+        <EntityType Name="ASIGNACIONPRODUCTO">
+          <Key>
+            <PropertyRef Name="ASIGNACIONPRODUCTOID" />
+          </Key>
+          <Property Name="ASIGNACIONPRODUCTOID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TALLERID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="REPUESTOORIGINALID" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="CANTIDAD" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="TALLER" Relationship="Self.FK_ASIG_PRO_REFERENCE_TAL" FromRole="ASIGNACIONPRODUCTO" ToRole="TALLER" />
+          <NavigationProperty Name="REPUESTOORIGINAL" Relationship="Self.FK_ASIGNACI_REFERENCE_REPUESTO" FromRole="ASIGNACIONPRODUCTO" ToRole="REPUESTOORIGINAL" />
+        </EntityType>
+        <EntityType Name="COMUNA">
+          <Key>
+            <PropertyRef Name="COMUNAID" />
+          </Key>
+          <Property Name="COMUNAID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="REGIONID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBRECOMUNA" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="REGION" Relationship="Self.FK_COMUNA_REFERENCE_REGION" FromRole="COMUNA" ToRole="REGION" />
+          <NavigationProperty Name="LOCALIZACION" Relationship="Self.FK_LOCALIZA_REFERENCE_COMUNA" FromRole="COMUNA" ToRole="LOCALIZACION" />
+        </EntityType>
+        <EntityType Name="LOCALIZACION">
+          <Key>
+            <PropertyRef Name="LOCALIZACIONID" />
+          </Key>
+          <Property Name="LOCALIZACIONID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="COMUNAID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBRELOCALIZACION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="COMUNA" Relationship="Self.FK_LOCALIZA_REFERENCE_COMUNA" FromRole="LOCALIZACION" ToRole="COMUNA" />
+          <NavigationProperty Name="TALLER" Relationship="Self.FK_TALLER_REFERENCE_LOCALIZA" FromRole="LOCALIZACION" ToRole="TALLER" />
+        </EntityType>
+        <EntityType Name="MARCA">
+          <Key>
+            <PropertyRef Name="MARCAID" />
+          </Key>
+          <Property Name="MARCAID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBREMARCA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="MODELO" Relationship="Self.FK_MODELO_REFERENCE_MARCA" FromRole="MARCA" ToRole="MODELO" />
+        </EntityType>
+        <EntityType Name="MODELO">
+          <Key>
+            <PropertyRef Name="MODELOID" />
+          </Key>
+          <Property Name="MODELOID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="MARCAID" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="NOMBREMODELO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="MARCA" Relationship="Self.FK_MODELO_REFERENCE_MARCA" FromRole="MODELO" ToRole="MARCA" />
+          <NavigationProperty Name="REPUESTOALTERNATIVO" Relationship="Self.FK_ALTER_REFERENCE_MODELO" FromRole="MODELO" ToRole="REPUESTOALTERNATIVO" />
+          <NavigationProperty Name="REPUESTOORIGINAL" Relationship="Self.FK_Ori_REFERENCE_MODELO" FromRole="MODELO" ToRole="REPUESTOORIGINAL" />
+        </EntityType>
+        <EntityType Name="PAIS">
+          <Key>
+            <PropertyRef Name="PAISID" />
+          </Key>
+          <Property Name="PAISID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBREPAIS" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="REGION" Relationship="Self.FK_REGION_REFERENCE_PAIS" FromRole="PAIS" ToRole="REGION" />
+        </EntityType>
+        <EntityType Name="PAQUETEMANTENCION">
+          <Key>
+            <PropertyRef Name="PAQUETEMANTENCIONID" />
+          </Key>
+          <Property Name="PAQUETEMANTENCIONID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBREPAQUETEMANTENCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="COSTOTOTAL" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DURACIONDIAS" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="600" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ASIGNACIONPAQMANT" Relationship="Self.FK_ASIGNACI_REFERENCE_PAQUETEM" FromRole="PAQUETEMANTENCION" ToRole="ASIGNACIONPAQMANT" />
+          <NavigationProperty Name="REPUESTOORIGINALUTILIZADO" Relationship="Self.FK_ORG_REFERENCE_PAQUETEM" FromRole="PAQUETEMANTENCION" ToRole="REPUESTOORIGINALUTILIZADO" />
+          <NavigationProperty Name="REPUESTOALTERNATIVOUTILIZADO" Relationship="Self.FK_UTIL_REFERENCE_PAQUETEM" FromRole="PAQUETEMANTENCION" ToRole="REPUESTOALTERNATIVOUTILIZADO" />
+          <NavigationProperty Name="VEHICILOMANTENCION" Relationship="Self.FK_VEHICILO_REFERENCE_PAQUETEM" FromRole="PAQUETEMANTENCION" ToRole="VEHICILOMANTENCION" />
+        </EntityType>
+        <EntityType Name="PERFIL">
+          <Key>
+            <PropertyRef Name="PERFILID" />
+          </Key>
+          <Property Name="PERFILID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBREPERFIL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.FK_USUARIO_REFERENCE_PERFIL" FromRole="PERFIL" ToRole="USUARIO" />
+        </EntityType>
+        <EntityType Name="PROVEEDOR">
+          <Key>
+            <PropertyRef Name="PROVEEDORID" />
+          </Key>
+          <Property Name="PROVEEDORID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBREPROVEEDOR" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="REPUESTOALTERNATIVO" Relationship="Self.FK_ALTER_REFERENCE_PROVEEDO" FromRole="PROVEEDOR" ToRole="REPUESTOALTERNATIVO" />
+          <NavigationProperty Name="REPUESTOORIGINAL" Relationship="Self.FK_ORI_REFERENCE_PROVEEDO" FromRole="PROVEEDOR" ToRole="REPUESTOORIGINAL" />
+        </EntityType>
+        <EntityType Name="REGION">
+          <Key>
+            <PropertyRef Name="REGIONID" />
+          </Key>
+          <Property Name="REGIONID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PAISID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBREREGION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="COMUNA" Relationship="Self.FK_COMUNA_REFERENCE_REGION" FromRole="REGION" ToRole="COMUNA" />
+          <NavigationProperty Name="PAIS" Relationship="Self.FK_REGION_REFERENCE_PAIS" FromRole="REGION" ToRole="PAIS" />
+        </EntityType>
+        <EntityType Name="REPUESTOALTERNATIVO">
+          <Key>
+            <PropertyRef Name="REPUESTOALTERNATIVOID" />
+          </Key>
+          <Property Name="REPUESTOALTERNATIVOID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="REPUESTOORIGINALID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PROVEEDORID" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="TIPOPRODUCTOID" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="MODELOID" Type="Decimal" Precision="38" Scale="0" />
+          <NavigationProperty Name="MODELO" Relationship="Self.FK_ALTER_REFERENCE_MODELO" FromRole="REPUESTOALTERNATIVO" ToRole="MODELO" />
+          <NavigationProperty Name="PROVEEDOR" Relationship="Self.FK_ALTER_REFERENCE_PROVEEDO" FromRole="REPUESTOALTERNATIVO" ToRole="PROVEEDOR" />
+          <NavigationProperty Name="REPUESTOORIGINAL" Relationship="Self.FK_ALT_REFERENCE_ORG" FromRole="REPUESTOALTERNATIVO" ToRole="REPUESTOORIGINAL" />
+          <NavigationProperty Name="TIPOPRODUCTO" Relationship="Self.FK_REPUESTO_REFERENCE_TIPOPROD" FromRole="REPUESTOALTERNATIVO" ToRole="TIPOPRODUCTO" />
+          <NavigationProperty Name="REPUESTOALTERNATIVOUTILIZADO" Relationship="Self.FK_UTIL_REFERENCE_ALT" FromRole="REPUESTOALTERNATIVO" ToRole="REPUESTOALTERNATIVOUTILIZADO" />
+          <Property Name="COSTO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="REPUESTOALTERNATIVOUTILIZADO">
+          <Key>
+            <PropertyRef Name="REPUESTOALTERNATIVOUTILIZADOID" />
+          </Key>
+          <Property Name="REPUESTOALTERNATIVOUTILIZADOID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="REPUESTOALTERNATIVOID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PAQUETEMANTENCIONID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CANTIDAD" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="PAQUETEMANTENCION" Relationship="Self.FK_UTIL_REFERENCE_PAQUETEM" FromRole="REPUESTOALTERNATIVOUTILIZADO" ToRole="PAQUETEMANTENCION" />
+          <NavigationProperty Name="REPUESTOALTERNATIVO" Relationship="Self.FK_UTIL_REFERENCE_ALT" FromRole="REPUESTOALTERNATIVOUTILIZADO" ToRole="REPUESTOALTERNATIVO" />
+        </EntityType>
+        <EntityType Name="REPUESTOORIGINAL">
+          <Key>
+            <PropertyRef Name="REPUESTOORIGINALID" />
+          </Key>
+          <Property Name="REPUESTOORIGINALID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="MODELOID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PROVEEDORID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TIPOPRODUCTOID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="COSTO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="ASIGNACIONPRODUCTO" Relationship="Self.FK_ASIGNACI_REFERENCE_REPUESTO" FromRole="REPUESTOORIGINAL" ToRole="ASIGNACIONPRODUCTO" />
+          <NavigationProperty Name="MODELO" Relationship="Self.FK_Ori_REFERENCE_MODELO" FromRole="REPUESTOORIGINAL" ToRole="MODELO" />
+          <NavigationProperty Name="PROVEEDOR" Relationship="Self.FK_ORI_REFERENCE_PROVEEDO" FromRole="REPUESTOORIGINAL" ToRole="PROVEEDOR" />
+          <NavigationProperty Name="REPUESTOALTERNATIVO" Relationship="Self.FK_ALT_REFERENCE_ORG" FromRole="REPUESTOORIGINAL" ToRole="REPUESTOALTERNATIVO" />
+          <NavigationProperty Name="TIPOPRODUCTO" Relationship="Self.FK_PRO_TIP_REFERENCE_TIPO" FromRole="REPUESTOORIGINAL" ToRole="TIPOPRODUCTO" />
+          <NavigationProperty Name="REPUESTOORIGINALUTILIZADO" Relationship="Self.FK_UTIL_REFERENCE_ORG" FromRole="REPUESTOORIGINAL" ToRole="REPUESTOORIGINALUTILIZADO" />
+        </EntityType>
+        <EntityType Name="REPUESTOORIGINALUTILIZADO">
+          <Key>
+            <PropertyRef Name="REPUESTOORIGINALUTILIZADOID" />
+          </Key>
+          <Property Name="REPUESTOORIGINALUTILIZADOID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="REPUESTOORIGINALID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PAQUETEMANTENCIONID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CANTIDAD" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="PAQUETEMANTENCION" Relationship="Self.FK_ORG_REFERENCE_PAQUETEM" FromRole="REPUESTOORIGINALUTILIZADO" ToRole="PAQUETEMANTENCION" />
+          <NavigationProperty Name="REPUESTOORIGINAL" Relationship="Self.FK_UTIL_REFERENCE_ORG" FromRole="REPUESTOORIGINALUTILIZADO" ToRole="REPUESTOORIGINAL" />
+        </EntityType>
+        <EntityType Name="TALLER">
+          <Key>
+            <PropertyRef Name="TALLERID" />
+          </Key>
+          <Property Name="TALLERID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="LOCATIONID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBRETALLER" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ASIGNACIONPAQMANT" Relationship="Self.FK_ASIGNACI_REFERENCE_TALLER" FromRole="TALLER" ToRole="ASIGNACIONPAQMANT" />
+          <NavigationProperty Name="ASIGNACIONPRODUCTO" Relationship="Self.FK_ASIG_PRO_REFERENCE_TAL" FromRole="TALLER" ToRole="ASIGNACIONPRODUCTO" />
+          <NavigationProperty Name="LOCALIZACION" Relationship="Self.FK_TALLER_REFERENCE_LOCALIZA" FromRole="TALLER" ToRole="LOCALIZACION" />
+        </EntityType>
+        <EntityType Name="TIPOPRODUCTO">
+          <Key>
+            <PropertyRef Name="TIPOPRODUCTOID" />
+          </Key>
+          <Property Name="TIPOPRODUCTOID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBRETIPO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="REPUESTOALTERNATIVO" Relationship="Self.FK_REPUESTO_REFERENCE_TIPOPROD" FromRole="TIPOPRODUCTO" ToRole="REPUESTOALTERNATIVO" />
+          <NavigationProperty Name="REPUESTOORIGINAL" Relationship="Self.FK_PRO_TIP_REFERENCE_TIPO" FromRole="TIPOPRODUCTO" ToRole="REPUESTOORIGINAL" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="PERSONAID" />
+          </Key>
+          <Property Name="PERSONAID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PERFILID" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="RUTPERSONA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NOMBREPERSONA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="APELLIDOPERSONA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EMAILPERSONA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PASSWORDPERSONA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="PERFIL" Relationship="Self.FK_USUARIO_REFERENCE_PERFIL" FromRole="USUARIO" ToRole="PERFIL" />
+          <Property Name="PASSWORDCODE" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="VEHICILOMANTENCION">
+          <Key>
+            <PropertyRef Name="IDVEHICILOMANTENCION" />
+          </Key>
+          <Property Name="PAQUETEMANTENCIONID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="IDVEHICILOMANTENCION" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PATENTE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FECHAENTRADA" Type="DateTime" Nullable="false" />
+          <Property Name="FECHASALIDA" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="PAQUETEMANTENCION" Relationship="Self.FK_VEHICILO_REFERENCE_PAQUETEM" FromRole="VEHICILOMANTENCION" ToRole="PAQUETEMANTENCION" />
+          <NavigationProperty Name="VEHICULO" Relationship="Self.FK_VEHICILO_REFERENCE_VEHICULO" FromRole="VEHICILOMANTENCION" ToRole="VEHICULO" />
+        </EntityType>
+        <EntityType Name="VEHICULO">
+          <Key>
+            <PropertyRef Name="PATENTE" />
+          </Key>
+          <Property Name="RUTCLIENTE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NOMBRECLIENTE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MARCAVEHICULO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MODELOVEHICULO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PATENTE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="VEHICILOMANTENCION" Relationship="Self.FK_VEHICILO_REFERENCE_VEHICULO" FromRole="VEHICULO" ToRole="VEHICILOMANTENCION" />
+        </EntityType>
+        <Association Name="FK_ASIGNACI_REFERENCE_PAQUETEM">
+          <End Role="PAQUETEMANTENCION" Type="Self.PAQUETEMANTENCION" Multiplicity="0..1" />
+          <End Role="ASIGNACIONPAQMANT" Type="Self.ASIGNACIONPAQMANT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PAQUETEMANTENCION">
+              <PropertyRef Name="PAQUETEMANTENCIONID" />
+            </Principal>
+            <Dependent Role="ASIGNACIONPAQMANT">
+              <PropertyRef Name="PAQUETEMANTENCIONID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ASIGNACI_REFERENCE_TALLER">
+          <End Role="TALLER" Type="Self.TALLER" Multiplicity="0..1" />
+          <End Role="ASIGNACIONPAQMANT" Type="Self.ASIGNACIONPAQMANT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TALLER">
+              <PropertyRef Name="TALLERID" />
+            </Principal>
+            <Dependent Role="ASIGNACIONPAQMANT">
+              <PropertyRef Name="TALLERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ASIG_PRO_REFERENCE_TAL">
+          <End Role="TALLER" Type="Self.TALLER" Multiplicity="1" />
+          <End Role="ASIGNACIONPRODUCTO" Type="Self.ASIGNACIONPRODUCTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TALLER">
+              <PropertyRef Name="TALLERID" />
+            </Principal>
+            <Dependent Role="ASIGNACIONPRODUCTO">
+              <PropertyRef Name="TALLERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ASIGNACI_REFERENCE_REPUESTO">
+          <End Role="REPUESTOORIGINAL" Type="Self.REPUESTOORIGINAL" Multiplicity="0..1" />
+          <End Role="ASIGNACIONPRODUCTO" Type="Self.ASIGNACIONPRODUCTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REPUESTOORIGINAL">
+              <PropertyRef Name="REPUESTOORIGINALID" />
+            </Principal>
+            <Dependent Role="ASIGNACIONPRODUCTO">
+              <PropertyRef Name="REPUESTOORIGINALID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_COMUNA_REFERENCE_REGION">
+          <End Role="REGION" Type="Self.REGION" Multiplicity="1" />
+          <End Role="COMUNA" Type="Self.COMUNA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REGION">
+              <PropertyRef Name="REGIONID" />
+            </Principal>
+            <Dependent Role="COMUNA">
+              <PropertyRef Name="REGIONID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LOCALIZA_REFERENCE_COMUNA">
+          <End Role="COMUNA" Type="Self.COMUNA" Multiplicity="1" />
+          <End Role="LOCALIZACION" Type="Self.LOCALIZACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COMUNA">
+              <PropertyRef Name="COMUNAID" />
+            </Principal>
+            <Dependent Role="LOCALIZACION">
+              <PropertyRef Name="COMUNAID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TALLER_REFERENCE_LOCALIZA">
+          <End Role="LOCALIZACION" Type="Self.LOCALIZACION" Multiplicity="1" />
+          <End Role="TALLER" Type="Self.TALLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOCALIZACION">
+              <PropertyRef Name="LOCALIZACIONID" />
+            </Principal>
+            <Dependent Role="TALLER">
+              <PropertyRef Name="LOCATIONID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MODELO_REFERENCE_MARCA">
+          <End Role="MARCA" Type="Self.MARCA" Multiplicity="0..1" />
+          <End Role="MODELO" Type="Self.MODELO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MARCA">
+              <PropertyRef Name="MARCAID" />
+            </Principal>
+            <Dependent Role="MODELO">
+              <PropertyRef Name="MARCAID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ALTER_REFERENCE_MODELO">
+          <End Role="MODELO" Type="Self.MODELO" Multiplicity="0..1" />
+          <End Role="REPUESTOALTERNATIVO" Type="Self.REPUESTOALTERNATIVO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MODELO">
+              <PropertyRef Name="MODELOID" />
+            </Principal>
+            <Dependent Role="REPUESTOALTERNATIVO">
+              <PropertyRef Name="MODELOID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ori_REFERENCE_MODELO">
+          <End Role="MODELO" Type="Self.MODELO" Multiplicity="1" />
+          <End Role="REPUESTOORIGINAL" Type="Self.REPUESTOORIGINAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MODELO">
+              <PropertyRef Name="MODELOID" />
+            </Principal>
+            <Dependent Role="REPUESTOORIGINAL">
+              <PropertyRef Name="MODELOID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REGION_REFERENCE_PAIS">
+          <End Role="PAIS" Type="Self.PAIS" Multiplicity="1" />
+          <End Role="REGION" Type="Self.REGION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PAIS">
+              <PropertyRef Name="PAISID" />
+            </Principal>
+            <Dependent Role="REGION">
+              <PropertyRef Name="PAISID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORG_REFERENCE_PAQUETEM">
+          <End Role="PAQUETEMANTENCION" Type="Self.PAQUETEMANTENCION" Multiplicity="1" />
+          <End Role="REPUESTOORIGINALUTILIZADO" Type="Self.REPUESTOORIGINALUTILIZADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PAQUETEMANTENCION">
+              <PropertyRef Name="PAQUETEMANTENCIONID" />
+            </Principal>
+            <Dependent Role="REPUESTOORIGINALUTILIZADO">
+              <PropertyRef Name="PAQUETEMANTENCIONID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UTIL_REFERENCE_PAQUETEM">
+          <End Role="PAQUETEMANTENCION" Type="Self.PAQUETEMANTENCION" Multiplicity="1" />
+          <End Role="REPUESTOALTERNATIVOUTILIZADO" Type="Self.REPUESTOALTERNATIVOUTILIZADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PAQUETEMANTENCION">
+              <PropertyRef Name="PAQUETEMANTENCIONID" />
+            </Principal>
+            <Dependent Role="REPUESTOALTERNATIVOUTILIZADO">
+              <PropertyRef Name="PAQUETEMANTENCIONID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VEHICILO_REFERENCE_PAQUETEM">
+          <End Role="PAQUETEMANTENCION" Type="Self.PAQUETEMANTENCION" Multiplicity="1" />
+          <End Role="VEHICILOMANTENCION" Type="Self.VEHICILOMANTENCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PAQUETEMANTENCION">
+              <PropertyRef Name="PAQUETEMANTENCIONID" />
+            </Principal>
+            <Dependent Role="VEHICILOMANTENCION">
+              <PropertyRef Name="PAQUETEMANTENCIONID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIO_REFERENCE_PERFIL">
+          <End Role="PERFIL" Type="Self.PERFIL" Multiplicity="0..1" />
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERFIL">
+              <PropertyRef Name="PERFILID" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="PERFILID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ALTER_REFERENCE_PROVEEDO">
+          <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="0..1" />
+          <End Role="REPUESTOALTERNATIVO" Type="Self.REPUESTOALTERNATIVO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROVEEDOR">
+              <PropertyRef Name="PROVEEDORID" />
+            </Principal>
+            <Dependent Role="REPUESTOALTERNATIVO">
+              <PropertyRef Name="PROVEEDORID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORI_REFERENCE_PROVEEDO">
+          <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="1" />
+          <End Role="REPUESTOORIGINAL" Type="Self.REPUESTOORIGINAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROVEEDOR">
+              <PropertyRef Name="PROVEEDORID" />
+            </Principal>
+            <Dependent Role="REPUESTOORIGINAL">
+              <PropertyRef Name="PROVEEDORID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ALT_REFERENCE_ORG">
+          <End Role="REPUESTOORIGINAL" Type="Self.REPUESTOORIGINAL" Multiplicity="1" />
+          <End Role="REPUESTOALTERNATIVO" Type="Self.REPUESTOALTERNATIVO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REPUESTOORIGINAL">
+              <PropertyRef Name="REPUESTOORIGINALID" />
+            </Principal>
+            <Dependent Role="REPUESTOALTERNATIVO">
+              <PropertyRef Name="REPUESTOORIGINALID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REPUESTO_REFERENCE_TIPOPROD">
+          <End Role="TIPOPRODUCTO" Type="Self.TIPOPRODUCTO" Multiplicity="0..1" />
+          <End Role="REPUESTOALTERNATIVO" Type="Self.REPUESTOALTERNATIVO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPOPRODUCTO">
+              <PropertyRef Name="TIPOPRODUCTOID" />
+            </Principal>
+            <Dependent Role="REPUESTOALTERNATIVO">
+              <PropertyRef Name="TIPOPRODUCTOID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UTIL_REFERENCE_ALT">
+          <End Role="REPUESTOALTERNATIVO" Type="Self.REPUESTOALTERNATIVO" Multiplicity="1" />
+          <End Role="REPUESTOALTERNATIVOUTILIZADO" Type="Self.REPUESTOALTERNATIVOUTILIZADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REPUESTOALTERNATIVO">
+              <PropertyRef Name="REPUESTOALTERNATIVOID" />
+            </Principal>
+            <Dependent Role="REPUESTOALTERNATIVOUTILIZADO">
+              <PropertyRef Name="REPUESTOALTERNATIVOID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRO_TIP_REFERENCE_TIPO">
+          <End Role="TIPOPRODUCTO" Type="Self.TIPOPRODUCTO" Multiplicity="1" />
+          <End Role="REPUESTOORIGINAL" Type="Self.REPUESTOORIGINAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPOPRODUCTO">
+              <PropertyRef Name="TIPOPRODUCTOID" />
+            </Principal>
+            <Dependent Role="REPUESTOORIGINAL">
+              <PropertyRef Name="TIPOPRODUCTOID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UTIL_REFERENCE_ORG">
+          <End Role="REPUESTOORIGINAL" Type="Self.REPUESTOORIGINAL" Multiplicity="1" />
+          <End Role="REPUESTOORIGINALUTILIZADO" Type="Self.REPUESTOORIGINALUTILIZADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REPUESTOORIGINAL">
+              <PropertyRef Name="REPUESTOORIGINALID" />
+            </Principal>
+            <Dependent Role="REPUESTOORIGINALUTILIZADO">
+              <PropertyRef Name="REPUESTOORIGINALID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VEHICILO_REFERENCE_VEHICULO">
+          <End Role="VEHICULO" Type="Self.VEHICULO" Multiplicity="0..1" />
+          <End Role="VEHICILOMANTENCION" Type="Self.VEHICILOMANTENCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VEHICULO">
+              <PropertyRef Name="PATENTE" />
+            </Principal>
+            <Dependent Role="VEHICILOMANTENCION">
+              <PropertyRef Name="PATENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="portafolio" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ASIGNACIONPAQMANT" EntityType="Self.ASIGNACIONPAQMANT" />
+          <EntitySet Name="ASIGNACIONPRODUCTO" EntityType="Self.ASIGNACIONPRODUCTO" />
+          <EntitySet Name="COMUNA" EntityType="Self.COMUNA" />
+          <EntitySet Name="LOCALIZACION" EntityType="Self.LOCALIZACION" />
+          <EntitySet Name="MARCA" EntityType="Self.MARCA" />
+          <EntitySet Name="MODELO" EntityType="Self.MODELO" />
+          <EntitySet Name="PAIS" EntityType="Self.PAIS" />
+          <EntitySet Name="PAQUETEMANTENCION" EntityType="Self.PAQUETEMANTENCION" />
+          <EntitySet Name="PERFIL" EntityType="Self.PERFIL" />
+          <EntitySet Name="PROVEEDOR" EntityType="Self.PROVEEDOR" />
+          <EntitySet Name="REGION" EntityType="Self.REGION" />
+          <EntitySet Name="REPUESTOALTERNATIVO" EntityType="Self.REPUESTOALTERNATIVO" />
+          <EntitySet Name="REPUESTOALTERNATIVOUTILIZADO" EntityType="Self.REPUESTOALTERNATIVOUTILIZADO" />
+          <EntitySet Name="REPUESTOORIGINAL" EntityType="Self.REPUESTOORIGINAL" />
+          <EntitySet Name="REPUESTOORIGINALUTILIZADO" EntityType="Self.REPUESTOORIGINALUTILIZADO" />
+          <EntitySet Name="TALLER" EntityType="Self.TALLER" />
+          <EntitySet Name="TIPOPRODUCTO" EntityType="Self.TIPOPRODUCTO" />
+          <EntitySet Name="USUARIO" EntityType="Self.USUARIO" />
+          <EntitySet Name="VEHICILOMANTENCION" EntityType="Self.VEHICILOMANTENCION" />
+          <EntitySet Name="VEHICULO" EntityType="Self.VEHICULO" />
+          <AssociationSet Name="FK_ASIGNACI_REFERENCE_PAQUETEM" Association="Self.FK_ASIGNACI_REFERENCE_PAQUETEM">
+            <End Role="PAQUETEMANTENCION" EntitySet="PAQUETEMANTENCION" />
+            <End Role="ASIGNACIONPAQMANT" EntitySet="ASIGNACIONPAQMANT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ASIGNACI_REFERENCE_TALLER" Association="Self.FK_ASIGNACI_REFERENCE_TALLER">
+            <End Role="TALLER" EntitySet="TALLER" />
+            <End Role="ASIGNACIONPAQMANT" EntitySet="ASIGNACIONPAQMANT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ASIG_PRO_REFERENCE_TAL" Association="Self.FK_ASIG_PRO_REFERENCE_TAL">
+            <End Role="TALLER" EntitySet="TALLER" />
+            <End Role="ASIGNACIONPRODUCTO" EntitySet="ASIGNACIONPRODUCTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ASIGNACI_REFERENCE_REPUESTO" Association="Self.FK_ASIGNACI_REFERENCE_REPUESTO">
+            <End Role="REPUESTOORIGINAL" EntitySet="REPUESTOORIGINAL" />
+            <End Role="ASIGNACIONPRODUCTO" EntitySet="ASIGNACIONPRODUCTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_COMUNA_REFERENCE_REGION" Association="Self.FK_COMUNA_REFERENCE_REGION">
+            <End Role="REGION" EntitySet="REGION" />
+            <End Role="COMUNA" EntitySet="COMUNA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LOCALIZA_REFERENCE_COMUNA" Association="Self.FK_LOCALIZA_REFERENCE_COMUNA">
+            <End Role="COMUNA" EntitySet="COMUNA" />
+            <End Role="LOCALIZACION" EntitySet="LOCALIZACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TALLER_REFERENCE_LOCALIZA" Association="Self.FK_TALLER_REFERENCE_LOCALIZA">
+            <End Role="LOCALIZACION" EntitySet="LOCALIZACION" />
+            <End Role="TALLER" EntitySet="TALLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MODELO_REFERENCE_MARCA" Association="Self.FK_MODELO_REFERENCE_MARCA">
+            <End Role="MARCA" EntitySet="MARCA" />
+            <End Role="MODELO" EntitySet="MODELO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ALTER_REFERENCE_MODELO" Association="Self.FK_ALTER_REFERENCE_MODELO">
+            <End Role="MODELO" EntitySet="MODELO" />
+            <End Role="REPUESTOALTERNATIVO" EntitySet="REPUESTOALTERNATIVO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ori_REFERENCE_MODELO" Association="Self.FK_Ori_REFERENCE_MODELO">
+            <End Role="MODELO" EntitySet="MODELO" />
+            <End Role="REPUESTOORIGINAL" EntitySet="REPUESTOORIGINAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REGION_REFERENCE_PAIS" Association="Self.FK_REGION_REFERENCE_PAIS">
+            <End Role="PAIS" EntitySet="PAIS" />
+            <End Role="REGION" EntitySet="REGION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORG_REFERENCE_PAQUETEM" Association="Self.FK_ORG_REFERENCE_PAQUETEM">
+            <End Role="PAQUETEMANTENCION" EntitySet="PAQUETEMANTENCION" />
+            <End Role="REPUESTOORIGINALUTILIZADO" EntitySet="REPUESTOORIGINALUTILIZADO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UTIL_REFERENCE_PAQUETEM" Association="Self.FK_UTIL_REFERENCE_PAQUETEM">
+            <End Role="PAQUETEMANTENCION" EntitySet="PAQUETEMANTENCION" />
+            <End Role="REPUESTOALTERNATIVOUTILIZADO" EntitySet="REPUESTOALTERNATIVOUTILIZADO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VEHICILO_REFERENCE_PAQUETEM" Association="Self.FK_VEHICILO_REFERENCE_PAQUETEM">
+            <End Role="PAQUETEMANTENCION" EntitySet="PAQUETEMANTENCION" />
+            <End Role="VEHICILOMANTENCION" EntitySet="VEHICILOMANTENCION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIO_REFERENCE_PERFIL" Association="Self.FK_USUARIO_REFERENCE_PERFIL">
+            <End Role="PERFIL" EntitySet="PERFIL" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ALTER_REFERENCE_PROVEEDO" Association="Self.FK_ALTER_REFERENCE_PROVEEDO">
+            <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
+            <End Role="REPUESTOALTERNATIVO" EntitySet="REPUESTOALTERNATIVO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORI_REFERENCE_PROVEEDO" Association="Self.FK_ORI_REFERENCE_PROVEEDO">
+            <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
+            <End Role="REPUESTOORIGINAL" EntitySet="REPUESTOORIGINAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ALT_REFERENCE_ORG" Association="Self.FK_ALT_REFERENCE_ORG">
+            <End Role="REPUESTOORIGINAL" EntitySet="REPUESTOORIGINAL" />
+            <End Role="REPUESTOALTERNATIVO" EntitySet="REPUESTOALTERNATIVO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REPUESTO_REFERENCE_TIPOPROD" Association="Self.FK_REPUESTO_REFERENCE_TIPOPROD">
+            <End Role="TIPOPRODUCTO" EntitySet="TIPOPRODUCTO" />
+            <End Role="REPUESTOALTERNATIVO" EntitySet="REPUESTOALTERNATIVO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UTIL_REFERENCE_ALT" Association="Self.FK_UTIL_REFERENCE_ALT">
+            <End Role="REPUESTOALTERNATIVO" EntitySet="REPUESTOALTERNATIVO" />
+            <End Role="REPUESTOALTERNATIVOUTILIZADO" EntitySet="REPUESTOALTERNATIVOUTILIZADO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRO_TIP_REFERENCE_TIPO" Association="Self.FK_PRO_TIP_REFERENCE_TIPO">
+            <End Role="TIPOPRODUCTO" EntitySet="TIPOPRODUCTO" />
+            <End Role="REPUESTOORIGINAL" EntitySet="REPUESTOORIGINAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UTIL_REFERENCE_ORG" Association="Self.FK_UTIL_REFERENCE_ORG">
+            <End Role="REPUESTOORIGINAL" EntitySet="REPUESTOORIGINAL" />
+            <End Role="REPUESTOORIGINALUTILIZADO" EntitySet="REPUESTOORIGINALUTILIZADO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VEHICILO_REFERENCE_VEHICULO" Association="Self.FK_VEHICILO_REFERENCE_VEHICULO">
+            <End Role="VEHICULO" EntitySet="VEHICULO" />
+            <End Role="VEHICILOMANTENCION" EntitySet="VEHICILOMANTENCION" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="portafolio">
+          <EntitySetMapping Name="ASIGNACIONPAQMANT">
+            <EntityTypeMapping TypeName="Model.ASIGNACIONPAQMANT">
+              <MappingFragment StoreEntitySet="ASIGNACIONPAQMANT">
+                <ScalarProperty Name="ASIGNACIONPAQMANTID" ColumnName="ASIGNACIONPAQMANTID" />
+                <ScalarProperty Name="TALLERID" ColumnName="TALLERID" />
+                <ScalarProperty Name="PAQUETEMANTENCIONID" ColumnName="PAQUETEMANTENCIONID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ASIGNACIONPRODUCTO">
+            <EntityTypeMapping TypeName="Model.ASIGNACIONPRODUCTO">
+              <MappingFragment StoreEntitySet="ASIGNACIONPRODUCTO">
+                <ScalarProperty Name="ASIGNACIONPRODUCTOID" ColumnName="ASIGNACIONPRODUCTOID" />
+                <ScalarProperty Name="TALLERID" ColumnName="TALLERID" />
+                <ScalarProperty Name="REPUESTOORIGINALID" ColumnName="REPUESTOORIGINALID" />
+                <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="COMUNA">
+            <EntityTypeMapping TypeName="Model.COMUNA">
+              <MappingFragment StoreEntitySet="COMUNA">
+                <ScalarProperty Name="COMUNAID" ColumnName="COMUNAID" />
+                <ScalarProperty Name="REGIONID" ColumnName="REGIONID" />
+                <ScalarProperty Name="NOMBRECOMUNA" ColumnName="NOMBRECOMUNA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOCALIZACION">
+            <EntityTypeMapping TypeName="Model.LOCALIZACION">
+              <MappingFragment StoreEntitySet="LOCALIZACION">
+                <ScalarProperty Name="LOCALIZACIONID" ColumnName="LOCALIZACIONID" />
+                <ScalarProperty Name="COMUNAID" ColumnName="COMUNAID" />
+                <ScalarProperty Name="NOMBRELOCALIZACION" ColumnName="NOMBRELOCALIZACION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MARCA">
+            <EntityTypeMapping TypeName="Model.MARCA">
+              <MappingFragment StoreEntitySet="MARCA">
+                <ScalarProperty Name="MARCAID" ColumnName="MARCAID" />
+                <ScalarProperty Name="NOMBREMARCA" ColumnName="NOMBREMARCA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MODELO">
+            <EntityTypeMapping TypeName="Model.MODELO">
+              <MappingFragment StoreEntitySet="MODELO">
+                <ScalarProperty Name="MODELOID" ColumnName="MODELOID" />
+                <ScalarProperty Name="MARCAID" ColumnName="MARCAID" />
+                <ScalarProperty Name="NOMBREMODELO" ColumnName="NOMBREMODELO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PAIS">
+            <EntityTypeMapping TypeName="Model.PAIS">
+              <MappingFragment StoreEntitySet="PAIS">
+                <ScalarProperty Name="PAISID" ColumnName="PAISID" />
+                <ScalarProperty Name="NOMBREPAIS" ColumnName="NOMBREPAIS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PAQUETEMANTENCION">
+            <EntityTypeMapping TypeName="Model.PAQUETEMANTENCION">
+              <MappingFragment StoreEntitySet="PAQUETEMANTENCION">
+                <ScalarProperty Name="PAQUETEMANTENCIONID" ColumnName="PAQUETEMANTENCIONID" />
+                <ScalarProperty Name="NOMBREPAQUETEMANTENCION" ColumnName="NOMBREPAQUETEMANTENCION" />
+                <ScalarProperty Name="COSTOTOTAL" ColumnName="COSTOTOTAL" />
+                <ScalarProperty Name="DURACIONDIAS" ColumnName="DURACIONDIAS" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PERFIL">
+            <EntityTypeMapping TypeName="Model.PERFIL">
+              <MappingFragment StoreEntitySet="PERFIL">
+                <ScalarProperty Name="PERFILID" ColumnName="PERFILID" />
+                <ScalarProperty Name="NOMBREPERFIL" ColumnName="NOMBREPERFIL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PROVEEDOR">
+            <EntityTypeMapping TypeName="Model.PROVEEDOR">
+              <MappingFragment StoreEntitySet="PROVEEDOR">
+                <ScalarProperty Name="PROVEEDORID" ColumnName="PROVEEDORID" />
+                <ScalarProperty Name="NOMBREPROVEEDOR" ColumnName="NOMBREPROVEEDOR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REGION">
+            <EntityTypeMapping TypeName="Model.REGION">
+              <MappingFragment StoreEntitySet="REGION">
+                <ScalarProperty Name="REGIONID" ColumnName="REGIONID" />
+                <ScalarProperty Name="PAISID" ColumnName="PAISID" />
+                <ScalarProperty Name="NOMBREREGION" ColumnName="NOMBREREGION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REPUESTOALTERNATIVO">
+            <EntityTypeMapping TypeName="Model.REPUESTOALTERNATIVO">
+              <MappingFragment StoreEntitySet="REPUESTOALTERNATIVO">
+                <ScalarProperty Name="COSTO" ColumnName="COSTO" />
+                <ScalarProperty Name="REPUESTOALTERNATIVOID" ColumnName="REPUESTOALTERNATIVOID" />
+                <ScalarProperty Name="REPUESTOORIGINALID" ColumnName="REPUESTOORIGINALID" />
+                <ScalarProperty Name="PROVEEDORID" ColumnName="PROVEEDORID" />
+                <ScalarProperty Name="TIPOPRODUCTOID" ColumnName="TIPOPRODUCTOID" />
+                <ScalarProperty Name="MODELOID" ColumnName="MODELOID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REPUESTOALTERNATIVOUTILIZADO">
+            <EntityTypeMapping TypeName="Model.REPUESTOALTERNATIVOUTILIZADO">
+              <MappingFragment StoreEntitySet="REPUESTOALTERNATIVOUTILIZADO">
+                <ScalarProperty Name="REPUESTOALTERNATIVOUTILIZADOID" ColumnName="REPUESTOALTERNATIVOUTILIZADOID" />
+                <ScalarProperty Name="REPUESTOALTERNATIVOID" ColumnName="REPUESTOALTERNATIVOID" />
+                <ScalarProperty Name="PAQUETEMANTENCIONID" ColumnName="PAQUETEMANTENCIONID" />
+                <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REPUESTOORIGINAL">
+            <EntityTypeMapping TypeName="Model.REPUESTOORIGINAL">
+              <MappingFragment StoreEntitySet="REPUESTOORIGINAL">
+                <ScalarProperty Name="REPUESTOORIGINALID" ColumnName="REPUESTOORIGINALID" />
+                <ScalarProperty Name="MODELOID" ColumnName="MODELOID" />
+                <ScalarProperty Name="PROVEEDORID" ColumnName="PROVEEDORID" />
+                <ScalarProperty Name="TIPOPRODUCTOID" ColumnName="TIPOPRODUCTOID" />
+                <ScalarProperty Name="COSTO" ColumnName="COSTO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REPUESTOORIGINALUTILIZADO">
+            <EntityTypeMapping TypeName="Model.REPUESTOORIGINALUTILIZADO">
+              <MappingFragment StoreEntitySet="REPUESTOORIGINALUTILIZADO">
+                <ScalarProperty Name="REPUESTOORIGINALUTILIZADOID" ColumnName="REPUESTOORIGINALUTILIZADOID" />
+                <ScalarProperty Name="REPUESTOORIGINALID" ColumnName="REPUESTOORIGINALID" />
+                <ScalarProperty Name="PAQUETEMANTENCIONID" ColumnName="PAQUETEMANTENCIONID" />
+                <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TALLER">
+            <EntityTypeMapping TypeName="Model.TALLER">
+              <MappingFragment StoreEntitySet="TALLER">
+                <ScalarProperty Name="TALLERID" ColumnName="TALLERID" />
+                <ScalarProperty Name="LOCATIONID" ColumnName="LOCATIONID" />
+                <ScalarProperty Name="NOMBRETALLER" ColumnName="NOMBRETALLER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPOPRODUCTO">
+            <EntityTypeMapping TypeName="Model.TIPOPRODUCTO">
+              <MappingFragment StoreEntitySet="TIPOPRODUCTO">
+                <ScalarProperty Name="TIPOPRODUCTOID" ColumnName="TIPOPRODUCTOID" />
+                <ScalarProperty Name="NOMBRETIPO" ColumnName="NOMBRETIPO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USUARIO">
+            <EntityTypeMapping TypeName="Model.USUARIO">
+              <MappingFragment StoreEntitySet="USUARIO">
+                <ScalarProperty Name="PASSWORDCODE" ColumnName="PASSWORDCODE" />
+                <ScalarProperty Name="PERSONAID" ColumnName="PERSONAID" />
+                <ScalarProperty Name="PERFILID" ColumnName="PERFILID" />
+                <ScalarProperty Name="RUTPERSONA" ColumnName="RUTPERSONA" />
+                <ScalarProperty Name="NOMBREPERSONA" ColumnName="NOMBREPERSONA" />
+                <ScalarProperty Name="APELLIDOPERSONA" ColumnName="APELLIDOPERSONA" />
+                <ScalarProperty Name="EMAILPERSONA" ColumnName="EMAILPERSONA" />
+                <ScalarProperty Name="PASSWORDPERSONA" ColumnName="PASSWORDPERSONA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VEHICILOMANTENCION">
+            <EntityTypeMapping TypeName="Model.VEHICILOMANTENCION">
+              <MappingFragment StoreEntitySet="VEHICILOMANTENCION">
+                <ScalarProperty Name="PAQUETEMANTENCIONID" ColumnName="PAQUETEMANTENCIONID" />
+                <ScalarProperty Name="IDVEHICILOMANTENCION" ColumnName="IDVEHICILOMANTENCION" />
+                <ScalarProperty Name="PATENTE" ColumnName="PATENTE" />
+                <ScalarProperty Name="FECHAENTRADA" ColumnName="FECHAENTRADA" />
+                <ScalarProperty Name="FECHASALIDA" ColumnName="FECHASALIDA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VEHICULO">
+            <EntityTypeMapping TypeName="Model.VEHICULO">
+              <MappingFragment StoreEntitySet="VEHICULO">
+                <ScalarProperty Name="RUTCLIENTE" ColumnName="RUTCLIENTE" />
+                <ScalarProperty Name="NOMBRECLIENTE" ColumnName="NOMBRECLIENTE" />
+                <ScalarProperty Name="MARCAVEHICULO" ColumnName="MARCAVEHICULO" />
+                <ScalarProperty Name="MODELOVEHICULO" ColumnName="MODELOVEHICULO" />
+                <ScalarProperty Name="PATENTE" ColumnName="PATENTE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
